@@ -12,38 +12,98 @@
   body::before { content: ''; position: fixed; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px); pointer-events: none; z-index: 0; }
   body::after { content: ''; position: fixed; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, transparent, #FFBE00 20%, #FFBE00 80%, transparent); z-index: 100; }
   .wrap { max-width: 700px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* NAV */
   nav { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,190,0,0.15); }
   .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 5px; color: #FFBE00; }
   .logo span { display: block; font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.3); font-weight: 400; margin-top: -3px; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
   .nav-links a { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.35); text-decoration: none; text-transform: uppercase; }
   .nav-ig { border: 1px solid rgba(255,190,0,0.3) !important; padding: 6px 14px; border-radius: 3px; color: #FFBE00 !important; }
-  .hero { padding: 80px 0 60px; text-align: center; position: relative; }
+
+  /* HERO */
+  .hero { padding: 80px 0 40px; text-align: center; position: relative; }
   .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(255,190,0,0.1) 0%, transparent 70%); pointer-events: none; }
   .hero-eyebrow { font-size: 10px; letter-spacing: 6px; color: rgba(255,190,0,0.6); text-transform: uppercase; margin-bottom: 18px; font-weight: 600; }
   .hero-h1 { font-family: 'Bebas Neue', sans-serif; font-size: 82px; line-height: 0.9; letter-spacing: 3px; margin-bottom: 8px; }
   .hero-h1 .gold { color: #FFBE00; display: block; text-shadow: 0 0 60px rgba(255,190,0,0.35); }
   .hero-sub { color: rgba(255,255,255,0.4); font-size: 15px; max-width: 400px; margin: 18px auto 40px; font-weight: 300; line-height: 1.7; }
-  /* Brevo form overrides */
-  .sib-form { background: transparent !important; padding: 0 !important; }
-  #sib-container { background-color: #0D0D0D !important; border: 1px solid rgba(255,190,0,0.3) !important; border-radius: 6px !important; max-width: 480px !important; margin: 0 auto !important; }
-  #sib-container .sib-form-block p { color: #FFBE00 !important; font-family: 'Bebas Neue', sans-serif !important; font-size: 24px !important; }
-  .entry__label { color: rgba(255,255,255,0.4) !important; font-size: 11px !important; letter-spacing: 3px !important; }
-  .input { background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.1) !important; color: #fff !important; border-radius: 4px !important; }
-  .sib-form-block__button { background: #FFBE00 !important; color: #000 !important; font-family: 'Bebas Neue', sans-serif !important; font-size: 18px !important; letter-spacing: 3px !important; border-radius: 4px !important; width: 100% !important; padding: 12px !important; }
-  .perks { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin: 20px 0 70px; }
+
+  /* FORM BOX */
+  .form-box {
+    background: #0D0D0D;
+    border: 1px solid rgba(255,190,0,0.25);
+    border-radius: 8px;
+    padding: 32px 28px;
+    max-width: 480px;
+    margin: 0 auto 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+  }
+  .form-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #FFBE00, transparent);
+  }
+  .form-tag { font-size: 9px; letter-spacing: 5px; color: #FFBE00; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 6px; color: #fff; }
+  .form-desc { color: rgba(255,255,255,0.35); font-size: 12px; margin-bottom: 20px; font-weight: 300; line-height: 1.6; }
+  .form-label { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 8px; display: block; }
+  .form-input {
+    width: 100%;
+    background: #fff;
+    border: 1px solid rgba(255,190,0,0.2);
+    border-radius: 4px;
+    padding: 13px 16px;
+    color: #000;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .form-input:focus { border-color: #FFBE00; }
+  .form-input::placeholder { color: #999; }
+  .form-btn {
+    width: 100%;
+    background: #FFBE00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 14px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(255,190,0,0.25);
+    transition: box-shadow 0.2s;
+  }
+  .form-btn:hover { box-shadow: 0 0 50px rgba(255,190,0,0.5); }
+  .form-note { font-size: 10px; color: rgba(255,255,255,0.15); text-align: center; margin-top: 12px; letter-spacing: 1px; }
+
+  /* PERKS */
+  .perks { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin: 0 0 70px; }
   .perk { display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.3); }
   .dot { width: 5px; height: 5px; border-radius: 50%; background: #FFBE00; }
+
+  /* SECTIONS */
   .sec-div { display: flex; align-items: center; gap: 14px; margin: 0 0 36px; }
   .sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,190,0,0.15), transparent); }
   .sec-line.r { background: linear-gradient(270deg, rgba(255,190,0,0.15), transparent); }
   .sec-label { font-size: 8px; letter-spacing: 5px; color: rgba(255,190,0,0.35); text-transform: uppercase; white-space: nowrap; }
+
+  /* QUOTE */
   .quote-section { margin-bottom: 70px; }
   .quote-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-left: 3px solid #FFBE00; border-radius: 4px; padding: 28px 24px; position: relative; overflow: hidden; }
   .q-mark { font-family: 'Bebas Neue', sans-serif; font-size: 90px; color: rgba(255,190,0,0.06); line-height: 0.6; position: absolute; top: 14px; left: 18px; }
   .q-tag { font-size: 8px; letter-spacing: 5px; color: #FFBE00; font-weight: 700; margin-bottom: 14px; }
   .q-text { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1.15; position: relative; z-index: 1; margin-bottom: 10px; }
   .q-author { font-size: 10px; color: rgba(255,190,0,0.4); letter-spacing: 3px; font-weight: 600; }
+
+  /* APP */
   .app-section { margin-bottom: 70px; }
   .app-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.2); border-radius: 6px; overflow: hidden; position: relative; }
   .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
@@ -61,6 +121,8 @@
   .app-code { background: rgba(255,190,0,0.06); border: 1px dashed rgba(255,190,0,0.3); border-radius: 4px; padding: 12px 18px; }
   .app-code-label { font-size: 8px; letter-spacing: 3px; color: rgba(255,255,255,0.25); margin-bottom: 2px; }
   .app-code-val { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 4px; color: #FFBE00; }
+
+  /* INSTAGRAM */
   .ig-section { margin-bottom: 70px; }
   .ig-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-radius: 6px; padding: 36px 26px; text-align: center; position: relative; overflow: hidden; }
   .ig-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
@@ -68,6 +130,8 @@
   .ig-label { font-size: 9px; letter-spacing: 5px; color: rgba(255,255,255,0.25); margin-bottom: 16px; }
   .ig-desc { color: rgba(255,255,255,0.35); font-size: 13px; max-width: 340px; margin: 0 auto 22px; font-weight: 300; line-height: 1.7; }
   .ig-btn { display: inline-block; border: 1px solid rgba(255,190,0,0.4); color: #FFBE00; text-decoration: none; padding: 11px 26px; border-radius: 4px; font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 4px; }
+
+  /* FOOTER */
   footer { border-top: 1px solid rgba(255,190,0,0.1); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
   .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 4px; color: #FFBE00; }
   .footer-links { display: flex; gap: 18px; }
@@ -77,6 +141,7 @@
 </head>
 <body>
 <div class="wrap">
+
   <nav>
     <div class="logo">ELITE PROTOCOL<span>JOIN THE 1%</span></div>
     <div class="nav-links">
@@ -86,53 +151,25 @@
       <a href="https://instagram.com/elite_protocol101" target="_blank" class="nav-ig">↗ Instagram</a>
     </div>
   </nav>
+
   <section class="hero">
     <p class="hero-eyebrow">Daily reminders to keep you ahead of the 99%</p>
     <h1 class="hero-h1">ARE YOU<span class="gold">1%?</span></h1>
-    <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Get your free mindset guide and start living like the 1%.</p>
+    <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Get your free mindset guide and join the 1%.</p>
 
-    <!-- BREVO FORM -->
-    <div class="sib-form">
-      <div id="sib-form-container" class="sib-form-container">
-        <div id="sib-container" class="sib-container--large sib-container--vertical">
-          <form id="sib-form" method="POST" action="https://7732ffc4.sibforms.com/serve/MUIFAFJa_26w-kzh9cNFjKpC_are40VkBV-tCW6Yl7o4aaTjqdrDpCsTXsg43w4LxS8WgpWguMjFHltQl9l1-ovWOv2OatzDKsTQzugh0So6eB33OaQHAEbsXG4EDLko9DXJQ2EJH9Hiw3HFCwFnZ62J_wmZineggeZgdTJcg4PuUGaB66cPid9om_WvDmhjj0OO_pBw4IB2lN53og==">
-            <div style="padding: 8px 0;">
-              <div class="sib-form-block" style="font-family:'Bebas Neue',sans-serif; font-size:24px; font-weight:700; text-align:center; color:#FFBE00; background-color:transparent;">
-                <p>Get Your FREE 1% Mindset Guide</p>
-              </div>
-            </div>
-            <div style="padding: 4px 0 12px;">
-              <div class="sib-form-block" style="font-family:'Inter',sans-serif; font-size:13px; text-align:center; color:rgba(255,255,255,0.4); background-color:transparent;">
-                <p>30 quotes · 7-day challenge · Morning routine. Free forever.</p>
-              </div>
-            </div>
-            <div style="padding: 8px 0;">
-              <div class="sib-input sib-form-block">
-                <div class="form__entry entry_block">
-                  <div class="form__label-row">
-                    <div class="entry__field">
-                      <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Your email address" data-required="true" required />
-                    </div>
-                  </div>
-                  <label class="entry__error entry__error--primary" style="font-family:'Inter',sans-serif; font-size:13px; color:#661d1d; background-color:#ffeded; border-color:#ff4949; border-radius:3px;"></label>
-                </div>
-              </div>
-            </div>
-            <div style="padding: 8px 0;">
-              <div class="sib-form-block" style="text-align:center;">
-                <button class="sib-form-block__button sib-form-block__button-with-loader" form="sib-form" type="submit">
-                  GET MY FREE PDF ⚡
-                </button>
-              </div>
-            </div>
-            <input type="text" name="email_address_check" value="" class="input--hidden">
-            <input type="hidden" name="locale" value="en">
-            <input type="hidden" name="html_type" value="simple">
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- END BREVO FORM -->
+    <!-- CLEAN FORM BOX -->
+    <form class="form-box" method="POST" action="https://7732ffc4.sibforms.com/serve/MUIFAFJa_26w-kzh9cNFjKpC_are40VkBV-tCW6Yl7o4aaTjqdrDpCsTXsg43w4LxS8WgpWguMjFHltQl9l1-ovWOv2OatzDKsTQzugh0So6eB33OaQHAEbsXG4EDLko9DXJQ2EJH9Hiw3HFCwFnZ62J_wmZineggeZgdTJcg4PuUGaB66cPid9om_WvDmhjj0OO_pBw4IB2lN53og==">
+      <p class="form-tag">Free Download</p>
+      <h2 class="form-title">The 1% Mindset Guide</h2>
+      <p class="form-desc">30 elite quotes · 7-day discipline challenge · Morning routine of the 1%. Yours free — instantly.</p>
+      <label class="form-label">Your Email Address</label>
+      <input type="text" name="EMAIL" class="form-input" placeholder="example@email.com" required />
+      <button type="submit" class="form-btn">GET MY FREE PDF ⚡</button>
+      <input type="text" name="email_address_check" value="" style="display:none">
+      <input type="hidden" name="locale" value="en">
+      <input type="hidden" name="html_type" value="simple">
+      <p class="form-note">No spam. Unsubscribe anytime. 100% free.</p>
+    </form>
 
     <div class="perks">
       <div class="perk"><div class="dot"></div>30 Elite Quotes</div>
@@ -191,6 +228,7 @@
     <div class="footer-links"><a href="#">Impressum</a><a href="#">Datenschutz</a></div>
     <p class="footer-tag">Join the 1% — @elite_protocol101</p>
   </footer>
+
 </div>
 </body>
 </html>
