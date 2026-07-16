@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Elite Protocol — Join The 1%</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body { background: #000; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
   body::before { content: ''; position: fixed; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px); pointer-events: none; z-index: 0; }
   body::after { content: ''; position: fixed; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, transparent, #FFBE00 20%, #FFBE00 80%, transparent); z-index: 100; }
   .wrap { max-width: 700px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+  img, svg { max-width: 100%; }
 
-  /* NAV */
-  nav { padding: 22px 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,190,0,0.15); }
-  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 5px; color: #FFBE00; }
+  /* STICKY NAV */
+  .nav-spacer { height: 66px; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,190,0,0.15);
+  }
+  .nav-inner { max-width: 700px; margin: 0 auto; padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 5px; color: #FFBE00; text-decoration: none; }
   .logo span { display: block; font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.3); font-weight: 400; margin-top: -3px; }
   .nav-links { display: flex; gap: 20px; align-items: center; }
-  .nav-links a { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.35); text-decoration: none; text-transform: uppercase; }
+  .nav-links a { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.45); text-decoration: none; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
+  .nav-links a:hover { color: #FFBE00; }
   .nav-ig { border: 1px solid rgba(255,190,0,0.3) !important; padding: 6px 14px; border-radius: 3px; color: #FFBE00 !important; }
+  .nav-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .nav-toggle span { width: 20px; height: 2px; background: #FFBE00; display: block; }
 
   /* HERO */
-  .hero { padding: 80px 0 40px; text-align: center; position: relative; }
+  .hero { padding: 70px 0 40px; text-align: center; position: relative; }
   .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(255,190,0,0.1) 0%, transparent 70%); pointer-events: none; }
   .hero-eyebrow { font-size: 10px; letter-spacing: 6px; color: rgba(255,190,0,0.6); text-transform: uppercase; margin-bottom: 18px; font-weight: 600; }
   .hero-h1 { font-family: 'Bebas Neue', sans-serif; font-size: 82px; line-height: 0.9; letter-spacing: 3px; margin-bottom: 8px; }
@@ -59,7 +72,7 @@
     border-radius: 4px;
     padding: 13px 16px;
     color: #000;
-    font-size: 14px;
+    font-size: 16px;
     font-family: 'Inter', sans-serif;
     outline: none;
     margin-bottom: 12px;
@@ -87,9 +100,10 @@
   /* PERKS */
   .perks { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin: 0 0 70px; }
   .perk { display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.3); }
-  .dot { width: 5px; height: 5px; border-radius: 50%; background: #FFBE00; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: #FFBE00; flex-shrink: 0; }
 
   /* SECTIONS */
+  section { scroll-margin-top: 86px; }
   .sec-div { display: flex; align-items: center; gap: 14px; margin: 0 0 36px; }
   .sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,190,0,0.15), transparent); }
   .sec-line.r { background: linear-gradient(270deg, rgba(255,190,0,0.15), transparent); }
@@ -102,6 +116,21 @@
   .q-tag { font-size: 8px; letter-spacing: 5px; color: #FFBE00; font-weight: 700; margin-bottom: 14px; }
   .q-text { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1.15; position: relative; z-index: 1; margin-bottom: 10px; }
   .q-author { font-size: 10px; color: rgba(255,190,0,0.4); letter-spacing: 3px; font-weight: 600; }
+
+  /* ABOUT / INSTAGRAM INFO */
+  .about-section { margin-bottom: 70px; }
+  .about-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-radius: 6px; padding: 30px 26px; position: relative; overflow: hidden; }
+  .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
+  .about-top { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+  .about-avatar { width: 54px; height: 54px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, #FFBE00, #7a5c00); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #000; flex-shrink: 0; }
+  .about-handle { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
+  .about-sub { font-size: 11px; color: rgba(255,190,0,0.5); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+  .about-desc { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.8; font-weight: 300; margin-bottom: 22px; }
+  .about-desc strong { color: #fff; font-weight: 600; }
+  .about-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .about-stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 16px 10px; text-align: center; }
+  .about-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #FFBE00; line-height: 1; margin-bottom: 4px; }
+  .about-stat-label { font-size: 8px; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); text-transform: uppercase; line-height: 1.4; }
 
   /* APP */
   .app-section { margin-bottom: 70px; }
@@ -117,12 +146,12 @@
   .feature-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
   .feature-desc { font-size: 10px; color: rgba(255,255,255,0.3); line-height: 1.5; }
   .app-cta { padding: 20px 26px 26px; display: flex; gap: 12px; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; }
-  .app-btn-main { background: #FFBE00; color: #000; border: none; border-radius: 4px; padding: 12px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; cursor: pointer; }
+  .app-btn-main { background: #FFBE00; color: #000; border: none; border-radius: 4px; padding: 12px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
   .app-code { background: rgba(255,190,0,0.06); border: 1px dashed rgba(255,190,0,0.3); border-radius: 4px; padding: 12px 18px; }
   .app-code-label { font-size: 8px; letter-spacing: 3px; color: rgba(255,255,255,0.25); margin-bottom: 2px; }
   .app-code-val { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 4px; color: #FFBE00; }
 
-  /* INSTAGRAM */
+  /* INSTAGRAM CTA */
   .ig-section { margin-bottom: 70px; }
   .ig-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-radius: 6px; padding: 36px 26px; text-align: center; position: relative; overflow: hidden; }
   .ig-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
@@ -137,22 +166,75 @@
   .footer-links { display: flex; gap: 18px; }
   .footer-links a { font-size: 9px; color: rgba(255,255,255,0.15); text-decoration: none; letter-spacing: 2px; text-transform: uppercase; }
   .footer-tag { width: 100%; text-align: center; font-size: 9px; color: rgba(255,190,0,0.2); letter-spacing: 4px; margin-top: 6px; }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 640px) {
+    .wrap { padding: 0 18px; }
+    .nav-inner { padding: 14px 18px; }
+    .nav-links {
+      position: fixed; top: 58px; left: 0; right: 0;
+      background: rgba(0,0,0,0.97);
+      border-bottom: 1px solid rgba(255,190,0,0.15);
+      flex-direction: column; align-items: flex-start;
+      padding: 18px 24px; gap: 18px;
+      transform: translateY(-130%); opacity: 0;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      pointer-events: none;
+    }
+    .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .nav-links a { font-size: 12px; }
+    .nav-ig { align-self: flex-start; }
+    .nav-toggle { display: flex; }
+
+    .hero { padding: 46px 0 32px; }
+    .hero-h1 { font-size: 52px; letter-spacing: 1px; }
+    .hero-eyebrow { font-size: 9px; letter-spacing: 4px; }
+    .hero-sub { font-size: 14px; margin: 14px auto 30px; }
+
+    .form-box { padding: 24px 18px; }
+    .form-title { font-size: 23px; }
+
+    .perks { gap: 12px 16px; margin-bottom: 50px; }
+    .perk { font-size: 10px; }
+
+    .about-grid { grid-template-columns: 1fr 1fr; }
+    .about-avatar { width: 46px; height: 46px; font-size: 18px; }
+    .about-handle { font-size: 18px; }
+
+    .app-title { font-size: 28px; }
+    .app-features { grid-template-columns: 1fr; padding: 0 20px; }
+    .app-top { padding: 22px 20px 16px; }
+    .app-cta { padding: 18px 20px 22px; }
+    .app-btn-main { width: 100%; text-align: center; }
+    .app-code { width: 100%; text-align: center; }
+
+    .ig-num { font-size: 44px; }
+    .ig-card { padding: 28px 18px; }
+
+    footer { flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <nav>
-    <div class="logo">ELITE PROTOCOL<span>JOIN THE 1%</span></div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Mindset</a>
-      <a href="#">App</a>
+<nav>
+  <div class="nav-inner">
+    <a href="#top" class="logo">ELITE PROTOCOL<span>JOIN THE 1%</span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#top">Home</a>
+      <a href="#about">Instagram</a>
+      <a href="#app">App</a>
       <a href="https://instagram.com/elite_protocol101" target="_blank" class="nav-ig">↗ Instagram</a>
     </div>
-  </nav>
+  </div>
+</nav>
+<div class="nav-spacer"></div>
 
-  <section class="hero">
+<div class="wrap">
+
+  <section class="hero" id="top">
     <p class="hero-eyebrow">Daily reminders to keep you ahead of the 99%</p>
     <h1 class="hero-h1">ARE YOU<span class="gold">1%?</span></h1>
     <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Get your free mindset guide and join the 1%.</p>
@@ -189,7 +271,37 @@
     </div>
   </section>
 
-<section class="app-section">
+  <section class="about-section" id="about">
+    <div class="sec-div"><div class="sec-line"></div><span class="sec-label">About the account</span><div class="sec-line r"></div></div>
+    <div class="about-card">
+      <div class="about-top">
+        <div class="about-avatar">EP</div>
+        <div>
+          <div class="about-handle">@elite_protocol101</div>
+          <div class="about-sub">Mindset · Discipline · Motivation</div>
+        </div>
+      </div>
+      <p class="about-desc">
+        Elite Protocol is a daily feed of <strong>mindset and discipline content</strong> for people who refuse to be average. Most posts are <strong>motivational Reels</strong> — short, high-impact videos built around discipline, routine, and the "1% lifestyle." No fluff, no filler — just the reminders that keep you moving when it's easier to stop.
+      </p>
+      <div class="about-grid">
+        <div class="about-stat">
+          <div class="about-stat-num">2,500+</div>
+          <div class="about-stat-label">Followers</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">Reels</div>
+          <div class="about-stat-label">Main Content Format</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">Daily</div>
+          <div class="about-stat-label">Posting Rhythm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="app-section" id="app">
     <div class="sec-div"><div class="sec-line"></div><span class="sec-label">Ambassador Pick</span><div class="sec-line r"></div></div>
     <div class="app-card">
       <div class="app-top">
@@ -230,5 +342,14 @@
   </footer>
 
 </div>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+</script>
+
 </body>
 </html>
+
