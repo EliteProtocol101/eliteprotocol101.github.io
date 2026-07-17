@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #000; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  body { background: #000; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 20px; }
   body::before { content: ''; position: fixed; inset: 0; background-image: repeating-linear-gradient(0deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px), repeating-linear-gradient(90deg, rgba(255,190,0,0.015) 0, rgba(255,190,0,0.015) 1px, transparent 1px, transparent 60px); pointer-events: none; }
   body::after { content: ''; position: fixed; top: 0; left: 0; width: 3px; height: 100%; background: linear-gradient(180deg, transparent, #FFBE00 20%, #FFBE00 80%, transparent); }
   .glow { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,190,0,0.1) 0%, transparent 70%); pointer-events: none; }
@@ -17,7 +17,7 @@
     border-radius: 10px;
     padding: 52px 40px;
     max-width: 480px;
-    width: 90%;
+    width: 100%;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -31,18 +31,40 @@
   .tag { font-size: 9px; letter-spacing: 6px; color: #FFBE00; text-transform: uppercase; font-weight: 700; margin-bottom: 16px; }
   .title { font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 3px; color: #fff; line-height: 1; margin-bottom: 8px; }
   .title span { color: #FFBE00; }
-  .subtitle { color: rgba(255,255,255,0.4); font-size: 14px; line-height: 1.7; font-weight: 300; max-width: 340px; margin: 0 auto 32px; }
+  .subtitle { color: rgba(255,255,255,0.4); font-size: 14px; line-height: 1.7; font-weight: 300; max-width: 320px; margin: 0 auto 32px; }
   .divider { width: 60px; height: 2px; background: #FFBE00; margin: 0 auto 28px; box-shadow: 0 0 10px rgba(255,190,0,0.5); }
-  .steps { text-align: left; margin-bottom: 32px; display: flex; flex-direction: column; gap: 14px; }
-  .step { display: flex; gap: 14px; align-items: flex-start; }
-  .step-num { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,190,0,0.1); border: 1px solid rgba(255,190,0,0.4); display: flex; align-items: center; justify-content: center; font-family: 'Bebas Neue', sans-serif; font-size: 14px; color: #FFBE00; flex-shrink: 0; margin-top: 1px; }
-  .step-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; font-weight: 300; }
-  .step-text strong { color: #fff; font-weight: 600; }
-  .ig-btn { display: inline-flex; align-items: center; gap: 8px; background: #FFBE00; color: #000; text-decoration: none; padding: 13px 28px; border-radius: 4px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; box-shadow: 0 0 30px rgba(255,190,0,0.3); transition: box-shadow 0.2s; margin-bottom: 16px; }
-  .ig-btn:hover { box-shadow: 0 0 50px rgba(255,190,0,0.5); }
+
+  .dl-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%;
+    background: #FFBE00;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    padding: 17px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 0 30px rgba(255,190,0,0.3);
+    transition: box-shadow 0.2s, transform 0.2s;
+    margin-bottom: 14px;
+  }
+  .dl-btn:hover { box-shadow: 0 0 50px rgba(255,190,0,0.5); transform: translateY(-1px); }
+  .dl-sub { font-size: 10px; color: rgba(255,255,255,0.2); letter-spacing: 2px; margin-bottom: 32px; text-transform: uppercase; }
+
+  .ig-btn { display: inline-flex; align-items: center; gap: 8px; background: transparent; border: 1px solid rgba(255,190,0,0.4); color: #FFBE00; text-decoration: none; padding: 12px 26px; border-radius: 4px; font-family: 'Bebas Neue', sans-serif; font-size: 16px; letter-spacing: 4px; transition: background 0.2s; margin-bottom: 16px; }
+  .ig-btn:hover { background: rgba(255,190,0,0.08); }
   .home-link { display: block; font-size: 11px; color: rgba(255,255,255,0.2); letter-spacing: 3px; text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
   .home-link:hover { color: rgba(255,190,0,0.5); }
   .footer-tag { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 9px; color: rgba(255,190,0,0.2); letter-spacing: 5px; text-transform: uppercase; }
+
+  @media (max-width: 480px) {
+    .card { padding: 40px 26px; }
+    .title { font-size: 38px; }
+    .footer-tag { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -52,22 +74,13 @@
     <div class="checkmark">⚡</div>
     <p class="tag">Welcome to the movement</p>
     <h1 class="title">YOU'RE <span>1%</span><br>NOW.</h1>
-    <p class="subtitle">Your process has begun. Your free PDF will be delivered straight to your inbox within the next 24 hours.</p>
+    <p class="subtitle">You're on the list. Your free guide is ready — tap below to download it directly, right now.</p>
     <div class="divider"></div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-text"><strong>Wait for the email</strong> — your 1% Mindset Guide is being processed and will arrive within 24h.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-text"><strong>Check your Spam/Junk</strong> folder if you don't see it in your primary inbox tomorrow.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-text"><strong>Follow on Instagram</strong> for daily discipline triggers and elite lifestyle content.</div>
-      </div>
-    </div>
+
+   
+    <a href="https://drive.google.com/file/d/18Ul68-qYzxx1xkDryuuyj7jhKDCggMa0/view?usp=drive_link" target="_blank" class="dl-btn">⬇ DOWNLOAD YOUR GUIDE</a>
+    <p class="dl-sub">Opens instantly · No inbox needed</p>
+
     <a href="https://instagram.com/elite_protocol101" target="_blank" class="ig-btn">↗ Follow @elite_protocol101</a>
     <a href="/" class="home-link">← Back to website</a>
   </div>
