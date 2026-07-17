@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Elite Protocol — Join The 1%</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -15,11 +14,10 @@
   .wrap { max-width: 700px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
   img, svg { max-width: 100%; }
 
-  /* STICKY NAV */
   .nav-spacer { height: 66px; }
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.88);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,190,0,0.15);
@@ -27,89 +25,64 @@
   .nav-inner { max-width: 700px; margin: 0 auto; padding: 16px 28px; display: flex; justify-content: space-between; align-items: center; }
   .logo { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 5px; color: #FFBE00; text-decoration: none; }
   .logo span { display: block; font-family: 'Inter', sans-serif; font-size: 9px; letter-spacing: 4px; color: rgba(255,255,255,0.3); font-weight: 400; margin-top: -3px; }
-  .nav-links { display: flex; gap: 20px; align-items: center; }
+  .nav-links { display: flex; gap: 22px; align-items: center; }
   .nav-links a { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.45); text-decoration: none; text-transform: uppercase; transition: color 0.2s; white-space: nowrap; }
   .nav-links a:hover { color: #FFBE00; }
   .nav-ig { border: 1px solid rgba(255,190,0,0.3) !important; padding: 6px 14px; border-radius: 3px; color: #FFBE00 !important; }
   .nav-toggle { display: none; flex-direction: column; gap: 4px; background: none; border: none; cursor: pointer; padding: 8px; }
   .nav-toggle span { width: 20px; height: 2px; background: #FFBE00; display: block; }
 
-  /* HERO */
-  .hero { padding: 70px 0 40px; text-align: center; position: relative; }
+  .hero { padding: 70px 0 44px; text-align: center; position: relative; }
   .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 500px; height: 300px; background: radial-gradient(ellipse, rgba(255,190,0,0.1) 0%, transparent 70%); pointer-events: none; }
   .hero-eyebrow { font-size: 10px; letter-spacing: 6px; color: rgba(255,190,0,0.6); text-transform: uppercase; margin-bottom: 18px; font-weight: 600; }
   .hero-h1 { font-family: 'Bebas Neue', sans-serif; font-size: 82px; line-height: 0.9; letter-spacing: 3px; margin-bottom: 8px; }
   .hero-h1 .gold { color: #FFBE00; display: block; text-shadow: 0 0 60px rgba(255,190,0,0.35); }
-  .hero-sub { color: rgba(255,255,255,0.4); font-size: 15px; max-width: 400px; margin: 18px auto 40px; font-weight: 300; line-height: 1.7; }
+  .hero-sub { color: rgba(255,255,255,0.4); font-size: 15px; max-width: 400px; margin: 18px auto 36px; font-weight: 300; line-height: 1.7; }
 
-  /* FORM BOX */
-  .form-box {
+  .dl-box {
     background: #0D0D0D;
     border: 1px solid rgba(255,190,0,0.25);
     border-radius: 8px;
-    padding: 32px 28px;
+    padding: 34px 28px;
     max-width: 480px;
     margin: 0 auto 20px;
     position: relative;
     overflow: hidden;
-    text-align: left;
+    text-align: center;
   }
-  .form-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #FFBE00, transparent);
-  }
-  .form-tag { font-size: 9px; letter-spacing: 5px; color: #FFBE00; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
-  .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 6px; color: #fff; }
-  .form-desc { color: rgba(255,255,255,0.35); font-size: 12px; margin-bottom: 20px; font-weight: 300; line-height: 1.6; }
-  .form-label { font-size: 10px; letter-spacing: 3px; color: rgba(255,255,255,0.4); text-transform: uppercase; margin-bottom: 8px; display: block; }
-  .form-input {
-    width: 100%;
-    background: #fff;
-    border: 1px solid rgba(255,190,0,0.2);
-    border-radius: 4px;
-    padding: 13px 16px;
-    color: #000;
-    font-size: 16px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    margin-bottom: 12px;
-    transition: border-color 0.2s;
-  }
-  .form-input:focus { border-color: #FFBE00; }
-  .form-input::placeholder { color: #999; }
-  .form-btn {
+  .dl-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
+  .dl-tag { font-size: 9px; letter-spacing: 5px; color: #FFBE00; text-transform: uppercase; font-weight: 700; margin-bottom: 8px; }
+  .dl-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 2px; margin-bottom: 6px; color: #fff; }
+  .dl-desc { color: rgba(255,255,255,0.35); font-size: 12px; margin-bottom: 22px; font-weight: 300; line-height: 1.6; }
+  .dl-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
     width: 100%;
     background: #FFBE00;
     color: #000;
     border: none;
     border-radius: 4px;
-    padding: 14px;
+    padding: 16px;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 20px;
     letter-spacing: 4px;
     cursor: pointer;
+    text-decoration: none;
     box-shadow: 0 0 30px rgba(255,190,0,0.25);
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, transform 0.2s;
   }
-  .form-btn:hover { box-shadow: 0 0 50px rgba(255,190,0,0.5); }
-  .form-note { font-size: 10px; color: rgba(255,255,255,0.15); text-align: center; margin-top: 12px; letter-spacing: 1px; }
+  .dl-btn:hover { box-shadow: 0 0 50px rgba(255,190,0,0.5); transform: translateY(-1px); }
+  .dl-note { font-size: 10px; color: rgba(255,255,255,0.15); text-align: center; margin-top: 12px; letter-spacing: 1px; }
 
-  /* PERKS */
   .perks { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; margin: 0 0 70px; }
   .perk { display: flex; align-items: center; gap: 7px; font-size: 11px; color: rgba(255,255,255,0.3); }
   .dot { width: 5px; height: 5px; border-radius: 50%; background: #FFBE00; flex-shrink: 0; }
 
-  /* SECTIONS */
   section { scroll-margin-top: 86px; }
   .sec-div { display: flex; align-items: center; gap: 14px; margin: 0 0 36px; }
   .sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255,190,0,0.15), transparent); }
   .sec-line.r { background: linear-gradient(270deg, rgba(255,190,0,0.15), transparent); }
   .sec-label { font-size: 8px; letter-spacing: 5px; color: rgba(255,190,0,0.35); text-transform: uppercase; white-space: nowrap; }
 
-  /* QUOTE */
   .quote-section { margin-bottom: 70px; }
   .quote-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-left: 3px solid #FFBE00; border-radius: 4px; padding: 28px 24px; position: relative; overflow: hidden; }
   .q-mark { font-family: 'Bebas Neue', sans-serif; font-size: 90px; color: rgba(255,190,0,0.06); line-height: 0.6; position: absolute; top: 14px; left: 18px; }
@@ -117,7 +90,6 @@
   .q-text { font-family: 'Bebas Neue', sans-serif; font-size: 28px; line-height: 1.15; position: relative; z-index: 1; margin-bottom: 10px; }
   .q-author { font-size: 10px; color: rgba(255,190,0,0.4); letter-spacing: 3px; font-weight: 600; }
 
-  /* ABOUT / INSTAGRAM INFO */
   .about-section { margin-bottom: 70px; }
   .about-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-radius: 6px; padding: 30px 26px; position: relative; overflow: hidden; }
   .about-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
@@ -132,26 +104,34 @@
   .about-stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: #FFBE00; line-height: 1; margin-bottom: 4px; }
   .about-stat-label { font-size: 8px; letter-spacing: 1.5px; color: rgba(255,255,255,0.3); text-transform: uppercase; line-height: 1.4; }
 
-  /* APP */
+  /* APP — PURPLE/BLUE ZONE (deliberately distinct from the rest of the site) */
   .app-section { margin-bottom: 70px; }
-  .app-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.2); border-radius: 6px; overflow: hidden; position: relative; }
-  .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
-  .app-top { padding: 28px 26px 20px; }
-  .app-badge { background: rgba(255,190,0,0.08); border: 1px solid rgba(255,190,0,0.25); border-radius: 2px; font-size: 8px; letter-spacing: 4px; color: #FFBE00; font-weight: 700; padding: 3px 10px; }
-  .app-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 3px; margin: 14px 0 6px; }
-  .app-desc { color: rgba(255,255,255,0.4); font-size: 13px; line-height: 1.7; font-weight: 300; max-width: 420px; margin-bottom: 22px; }
-  .app-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; padding: 0 26px; }
-  .feature { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 4px; padding: 14px; }
+  .app-card {
+    background: linear-gradient(165deg, #0B0A16 0%, #0D0D0D 55%);
+    border: 1px solid rgba(124,92,255,0.3);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 60px rgba(90,60,255,0.08);
+  }
+  .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #7C5CFF, #4FA8FF, transparent); }
+  .app-glow { position: absolute; top: -60px; right: -60px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(124,92,255,0.18) 0%, transparent 70%); pointer-events: none; }
+  .app-top { padding: 28px 26px 20px; position: relative; }
+  .app-badge { background: rgba(124,92,255,0.12); border: 1px solid rgba(124,92,255,0.4); border-radius: 2px; font-size: 8px; letter-spacing: 4px; color: #A78BFF; font-weight: 700; padding: 3px 10px; }
+  .app-title { font-family: 'Bebas Neue', sans-serif; font-size: 36px; letter-spacing: 3px; margin: 14px 0 6px; background: linear-gradient(90deg, #C9BBFF, #8FC4FF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .app-desc { color: rgba(255,255,255,0.45); font-size: 13px; line-height: 1.7; font-weight: 300; max-width: 420px; margin-bottom: 22px; }
+  .app-desc strong { color: #C9BBFF; }
+  .app-features { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; padding: 0 26px; position: relative; }
+  .feature { background: rgba(124,92,255,0.05); border: 1px solid rgba(124,92,255,0.15); border-radius: 4px; padding: 14px; }
   .feature-icon { font-size: 18px; margin-bottom: 6px; }
-  .feature-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; }
-  .feature-desc { font-size: 10px; color: rgba(255,255,255,0.3); line-height: 1.5; }
-  .app-cta { padding: 20px 26px 26px; display: flex; gap: 12px; align-items: center; border-top: 1px solid rgba(255,255,255,0.04); flex-wrap: wrap; }
-  .app-btn-main { background: #FFBE00; color: #000; border: none; border-radius: 4px; padding: 12px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
-  .app-code { background: rgba(255,190,0,0.06); border: 1px dashed rgba(255,190,0,0.3); border-radius: 4px; padding: 12px 18px; }
-  .app-code-label { font-size: 8px; letter-spacing: 3px; color: rgba(255,255,255,0.25); margin-bottom: 2px; }
-  .app-code-val { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 4px; color: #FFBE00; }
+  .feature-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; color: #E4DEFF; }
+  .feature-desc { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+  .app-cta { padding: 20px 26px 26px; display: flex; gap: 12px; align-items: center; border-top: 1px solid rgba(124,92,255,0.12); flex-wrap: wrap; position: relative; }
+  .app-btn-main { background: linear-gradient(90deg, #7C5CFF, #4FA8FF); color: #000; border: none; border-radius: 4px; padding: 12px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+  .app-code { background: rgba(124,92,255,0.08); border: 1px dashed rgba(124,92,255,0.35); border-radius: 4px; padding: 12px 18px; }
+  .app-code-label { font-size: 8px; letter-spacing: 3px; color: rgba(255,255,255,0.3); margin-bottom: 2px; }
+  .app-code-val { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 4px; color: #A78BFF; }
 
-  /* INSTAGRAM CTA */
   .ig-section { margin-bottom: 70px; }
   .ig-card { background: #0D0D0D; border: 1px solid rgba(255,190,0,0.15); border-radius: 6px; padding: 36px 26px; text-align: center; position: relative; overflow: hidden; }
   .ig-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
@@ -160,14 +140,12 @@
   .ig-desc { color: rgba(255,255,255,0.35); font-size: 13px; max-width: 340px; margin: 0 auto 22px; font-weight: 300; line-height: 1.7; }
   .ig-btn { display: inline-block; border: 1px solid rgba(255,190,0,0.4); color: #FFBE00; text-decoration: none; padding: 11px 26px; border-radius: 4px; font-family: 'Bebas Neue', sans-serif; font-size: 17px; letter-spacing: 4px; }
 
-  /* FOOTER */
   footer { border-top: 1px solid rgba(255,190,0,0.1); padding: 24px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
   .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 4px; color: #FFBE00; }
   .footer-links { display: flex; gap: 18px; }
   .footer-links a { font-size: 9px; color: rgba(255,255,255,0.15); text-decoration: none; letter-spacing: 2px; text-transform: uppercase; }
   .footer-tag { width: 100%; text-align: center; font-size: 9px; color: rgba(255,190,0,0.2); letter-spacing: 4px; margin-top: 6px; }
 
-  /* ============ MOBILE ============ */
   @media (max-width: 640px) {
     .wrap { padding: 0 18px; }
     .nav-inner { padding: 14px 18px; }
@@ -189,10 +167,10 @@
     .hero { padding: 46px 0 32px; }
     .hero-h1 { font-size: 52px; letter-spacing: 1px; }
     .hero-eyebrow { font-size: 9px; letter-spacing: 4px; }
-    .hero-sub { font-size: 14px; margin: 14px auto 30px; }
+    .hero-sub { font-size: 14px; margin: 14px auto 28px; }
 
-    .form-box { padding: 24px 18px; }
-    .form-title { font-size: 23px; }
+    .dl-box { padding: 26px 18px; }
+    .dl-title { font-size: 23px; }
 
     .perks { gap: 12px 16px; margin-bottom: 50px; }
     .perk { font-size: 10px; }
@@ -224,6 +202,7 @@
     <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
       <a href="#top">Home</a>
+      <a href="#guide">Guide</a>
       <a href="#about">Instagram</a>
       <a href="#app">App</a>
       <a href="https://instagram.com/elite_protocol101" target="_blank" class="nav-ig">↗ Instagram</a>
@@ -237,21 +216,16 @@
   <section class="hero" id="top">
     <p class="hero-eyebrow">Daily reminders to keep you ahead of the 99%</p>
     <h1 class="hero-h1">ARE YOU<span class="gold">1%?</span></h1>
-    <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Get your free mindset guide and join the 1%.</p>
+    <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Grab your free mindset guide, no email required.</p>
 
-    <!-- CLEAN FORM BOX -->
-    <form class="form-box" method="POST" action="https://7732ffc4.sibforms.com/serve/MUIFAFJa_26w-kzh9cNFjKpC_are40VkBV-tCW6Yl7o4aaTjqdrDpCsTXsg43w4LxS8WgpWguMjFHltQl9l1-ovWOv2OatzDKsTQzugh0So6eB33OaQHAEbsXG4EDLko9DXJQ2EJH9Hiw3HFCwFnZ62J_wmZineggeZgdTJcg4PuUGaB66cPid9om_WvDmhjj0OO_pBw4IB2lN53og==">
-      <p class="form-tag">Free Download</p>
-      <h2 class="form-title">The 1% Mindset Guide</h2>
-      <p class="form-desc">30 elite quotes · 7-day discipline challenge · Morning routine of the 1%. Yours free — instantly.</p>
-      <label class="form-label">Your Email Address</label>
-      <input type="text" name="EMAIL" class="form-input" placeholder="example@email.com" required />
-      <button type="submit" class="form-btn">GET MY FREE PDF ⚡</button>
-      <input type="text" name="email_address_check" value="" style="display:none">
-      <input type="hidden" name="locale" value="en">
-      <input type="hidden" name="html_type" value="simple">
-      <p class="form-note">No spam. Unsubscribe anytime. 100% free.</p>
-    </form>
+  
+    <div class="dl-box" id="guide">
+      <p class="dl-tag">Free Download</p>
+      <h2 class="dl-title">The 1% Mindset Guide</h2>
+      <p class="dl-desc">30 elite quotes · 7-day discipline challenge · Morning routine of the 1%. Click below — the PDF opens instantly.</p>
+      <a href="https://drive.google.com/file/d/18Ul68-qYzxx1xkDryuuyj7jhKDCggMa0/view?usp=drive_link" target="_blank" class="dl-btn">⬇ DOWNLOAD FREE PDF</a>
+      <p class="dl-note">No signup. No spam. Just the guide.</p>
+    </div>
 
     <div class="perks">
       <div class="perk"><div class="dot"></div>30 Elite Quotes</div>
@@ -304,6 +278,7 @@
   <section class="app-section" id="app">
     <div class="sec-div"><div class="sec-line"></div><span class="sec-label">Ambassador Pick</span><div class="sec-line r"></div></div>
     <div class="app-card">
+      <div class="app-glow"></div>
       <div class="app-top">
         <div class="app-badge">ELITE PROTOCOL RECOMMENDS</div>
         <h2 class="app-title">DISCIPLIND APP</h2>
@@ -352,4 +327,5 @@
 
 </body>
 </html>
+
 
