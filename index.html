@@ -141,6 +141,24 @@
   .feature-icon { font-size: 18px; margin-bottom: 6px; }
   .feature-title { font-size: 12px; font-weight: 700; margin-bottom: 3px; color: #E4DEFF; }
   .feature-desc { font-size: 10px; color: rgba(255,255,255,0.35); line-height: 1.5; }
+  
+  /* NEU: DM CALLOUT BOX */
+  .app-dm-box {
+    margin: 0 26px 24px;
+    padding: 14px 18px;
+    background: rgba(255,255,255,0.02);
+    border: 1px dashed rgba(167,139,255,0.3);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .app-dm-icon { font-size: 20px; flex-shrink: 0; }
+  .app-dm-text { font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.5; }
+  .app-dm-text strong { color: #A78BFF; }
+  .app-dm-text a { color: #8FC4FF; text-decoration: none; font-weight: 600; }
+  .app-dm-text a:hover { text-decoration: underline; }
+
   .app-cta { padding: 20px 26px 26px; display: flex; gap: 12px; align-items: center; border-top: 1px solid rgba(124,92,255,0.12); flex-wrap: wrap; position: relative; }
   .app-btn-main { background: linear-gradient(90deg, #7C5CFF, #4FA8FF); color: #000; border: none; border-radius: 4px; padding: 12px 28px; font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
   .app-code { background: rgba(124,92,255,0.08); border: 1px dashed rgba(124,92,255,0.35); border-radius: 4px; padding: 12px 18px; }
@@ -196,6 +214,7 @@
 
     .app-title { font-size: 28px; }
     .app-features { grid-template-columns: 1fr; padding: 0 20px; }
+    .app-dm-box { margin: 0 20px 20px; }
     .app-top { padding: 22px 20px 16px; }
     .app-cta { padding: 18px 20px 22px; }
     .app-btn-main { width: 100%; text-align: center; }
@@ -233,7 +252,6 @@
     <h1 class="hero-h1">ARE YOU<span class="gold">1%?</span></h1>
     <p class="hero-sub">Most people scroll past this. The ones who don't — they're built different. Get your free mindset guide and join the 1%.</p>
 
-   
     <form class="form-box" id="guide" method="POST" action="https://7732ffc4.sibforms.com/serve/MUIFAFJa_26w-kzh9cNFjKpC_are40VkBV-tCW6Yl7o4aaTjqdrDpCsTXsg43w4LxS8WgpWguMjFHltQl9l1-ovWOv2OatzDKsTQzugh0So6eB33OaQHAEbsXG4EDLko9DXJQ2EJH9Hiw3HFCwFnZ62J_wmZineggeZgdTJcg4PuUGaB66cPid9om_WvDmhjj0OO_pBw4IB2lN53og==">
       <p class="form-tag">Free Download</p>
       <h2 class="form-title">The 1% Mindset Guide</h2>
@@ -310,6 +328,15 @@
         <div class="feature"><div class="feature-icon">🎯</div><div class="feature-title">Goal System</div><div class="feature-desc">Set real goals, break them into daily habits</div></div>
         <div class="feature"><div class="feature-icon">📈</div><div class="feature-title">Deep Stats</div><div class="feature-desc">100% rates, streaks, 30-day history per habit</div></div>
       </div>
+
+      <!-- DM CALLOUT BOX -->
+      <div class="app-dm-box">
+        <div class="app-dm-icon">💬</div>
+        <div class="app-dm-text">
+          Want direct access or have questions? Send me <strong>"Disciplind"</strong> in a DM on <a href="https://instagram.com/elite_protocol101" target="_blank">@elite_protocol101</a> to get instant app details and the direct download link!
+        </div>
+      </div>
+
       <div class="app-cta">
         <a href="https://disciplind.app/get?ref=ELITE101" target="_blank" class="app-btn-main">GET THE APP</a>
         <div class="app-code">
@@ -347,4 +374,3 @@
 
 </body>
 </html>
-
