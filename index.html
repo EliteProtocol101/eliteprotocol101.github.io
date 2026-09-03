@@ -9,7 +9,7 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #000;
+  background: #17171a;
   color: #fff;
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -65,7 +65,7 @@ nav {
 
 /* ── FORM BOX ── */
 .form-box {
-  background: #0D0D0D;
+  background: #1f1f23;
   border: 1px solid rgba(255,190,0,0.25);
   border-radius: 10px;
   padding: 30px 26px;
@@ -104,7 +104,7 @@ nav {
 
 /* ── APP TEASER STRIP ── */
 .app-strip {
-  background: linear-gradient(135deg, #0a0818 0%, #0D0D0D 100%);
+  background: linear-gradient(135deg, #17152e 0%, #1f1f23 100%);
   border: 1px solid rgba(79,70,229,0.3);
   border-radius: 8px;
   padding: 16px 20px;
@@ -137,7 +137,7 @@ nav {
 .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media(max-width: 480px) { .testi-grid { grid-template-columns: 1fr; } }
 .testi-card {
-  background: #0D0D0D;
+  background: #1f1f23;
   border: 1px solid rgba(255,190,0,0.12);
   border-radius: 8px;
   padding: 20px;
@@ -154,10 +154,37 @@ nav {
 .testi-name { font-size: 10px; color: rgba(255,255,255,0.3); letter-spacing: 2px; text-transform: uppercase; }
 .testi-tag { font-size: 8px; color: rgba(255,190,0,0.4); letter-spacing: 1px; margin-top: 1px; }
 
+/* ── QUIZ TEASER ── */
+.quiz-section { margin-bottom: 60px; }
+.quiz-card {
+  background: linear-gradient(135deg, #262010 0%, #1f1f23 60%);
+  border: 1px solid rgba(255,190,0,0.25);
+  border-radius: 10px;
+  padding: 32px 26px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.quiz-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #FFBE00, transparent); }
+.quiz-badge { font-size: 9px; letter-spacing: 4px; color: #FFBE00; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+.quiz-title { font-family: 'Bebas Neue', sans-serif; font-size: 40px; letter-spacing: 1px; line-height: 1.05; color: #fff; margin-bottom: 6px; }
+.quiz-title span { color: #FFBE00; }
+.quiz-desc { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 300; line-height: 1.6; max-width: 340px; margin: 0 auto 22px; }
+.quiz-meta { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; font-size: 10px; color: rgba(255,255,255,0.25); letter-spacing: 1px; }
+.quiz-meta span { color: #FFBE00; }
+.quiz-btn {
+  display: inline-block;
+  background: #FFBE00; color: #000; text-decoration: none;
+  font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 3px;
+  padding: 14px 32px; border-radius: 5px;
+  box-shadow: 0 0 30px rgba(255,190,0,0.25);
+  transition: box-shadow 0.2s, transform 0.15s;
+}
+.quiz-btn:hover { box-shadow: 0 0 45px rgba(255,190,0,0.4); transform: translateY(-1px); }
+
 /* ── APP SECTION FULL ── */
 .app-section { margin-bottom: 60px; }
 .app-card {
-  background: linear-gradient(135deg, #080614 0%, #0D0D0D 60%);
+  background: linear-gradient(135deg, #15122b 0%, #1f1f23 60%);
   border: 1px solid rgba(79,70,229,0.25);
   border-radius: 10px;
   overflow: hidden; position: relative;
@@ -221,7 +248,7 @@ nav {
 /* ── QUOTE ── */
 .quote-section { margin-bottom: 60px; }
 .quote-card {
-  background: #0D0D0D; border: 1px solid rgba(255,190,0,0.12);
+  background: #1f1f23; border: 1px solid rgba(255,190,0,0.12);
   border-left: 3px solid #FFBE00; border-radius: 6px;
   padding: 28px 24px; position: relative; overflow: hidden;
 }
@@ -233,7 +260,7 @@ nav {
 /* ── INSTAGRAM ── */
 .ig-section { margin-bottom: 60px; }
 .ig-card {
-  background: #0D0D0D; border: 1px solid rgba(255,190,0,0.12);
+  background: #1f1f23; border: 1px solid rgba(255,190,0,0.12);
   border-radius: 10px; padding: 36px 24px; text-align: center;
   position: relative; overflow: hidden;
 }
@@ -341,6 +368,18 @@ footer { border-top: 1px solid rgba(255,190,0,0.08); padding: 24px 0; display: f
     </div>
   </section>
 
+  <!-- QUIZ TEASER -->
+  <section class="quiz-section">
+    <div class="sec-div"><div class="sec-line"></div><span class="sec-label">New — Free Test</span><div class="sec-line r"></div></div>
+    <div class="quiz-card">
+      <p class="quiz-badge">The Discipline Test</p>
+      <h2 class="quiz-title">HOW <span>ELITE</span><br>ARE YOU?</h2>
+      <p class="quiz-desc">8 questions. 60 seconds. Find out how close your mindset really is to the top 1% — and what's holding you back.</p>
+      <div class="quiz-meta"><span>8</span>&nbsp;questions&nbsp;&nbsp;·&nbsp;&nbsp;<span>60s</span>&nbsp;to complete&nbsp;&nbsp;·&nbsp;&nbsp;<span>Free</span></div>
+      <a href="/quiz.html" class="quiz-btn">TAKE THE TEST ⚡</a>
+    </div>
+  </section>
+
   <!-- APP SECTION FULL -->
   <section class="app-section">
     <div class="sec-div"><div class="sec-line"></div><span class="sec-label">Ambassador Pick</span><div class="sec-line r"></div></div>
@@ -410,7 +449,7 @@ footer { border-top: 1px solid rgba(255,190,0,0.08); padding: 24px 0; display: f
   <section class="ig-section">
     <div class="sec-div"><div class="sec-line"></div><span class="sec-label">Follow the journey</span><div class="sec-line r"></div></div>
     <div class="ig-card">
-      <div class="ig-num">3,000+</div>
+      <div class="ig-num">3,500+</div>
       <p class="ig-label">and growing every day</p>
       <p class="ig-desc">Daily mindset content, discipline reels, and real talk. Join the community that refuses to be average.</p>
       <a href="https://instagram.com/elite_protocol101" target="_blank" class="ig-btn">↗ Follow @elite_protocol101</a>
